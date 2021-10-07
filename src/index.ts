@@ -32,7 +32,7 @@ app.get(
   '/reimbursements',
   (req: Request<{}, {}, {}, IQueryParams>, res: Response) => {
     const page = req.query.page !== undefined ? req.query.page : 0;
-    const limit = req.query.limit !== undefined ? req.query.limit : 5;
+    const limit = req.query.limit !== undefined ? req.query.limit : Infinity;
     const dateRange = req.query.dateRange.split(',');
     db.find({
       'incidentDate': {
